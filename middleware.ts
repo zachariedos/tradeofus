@@ -16,7 +16,7 @@ export async function middleware(req: NextRequest) {
     } else if (req.nextUrl.pathname.startsWith('/api/auth/signin') && !session) {
         return NextResponse.next()
     }
-    if (!session) {
+    if (!session && req.nextUrl.pathname !== '/') {
         const url = req.nextUrl.clone();
         url.pathname = '/api/auth/signin';
         return NextResponse.redirect(url)

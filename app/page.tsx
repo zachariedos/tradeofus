@@ -1,14 +1,9 @@
-import {auth} from "@/src/lib/auth";
-import {LogoutButton} from "@/components/ui/AuthButton";
+import {Toolbar} from "@/components/ui/Toolbar";
 
-export default async function Home() {
-  const session = await auth();
+export default function Home() {
   return (
-    <div>
-    <h1>
-        {session?.user ? `Hello, ${session.user.email}` : "Please sign in"}
-      <LogoutButton />
-    </h1>
+    <div className={"flex min-h-screen flex-col"}>
+      <Toolbar />
     </div>
   );
 }
