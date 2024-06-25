@@ -2,6 +2,9 @@ import type {Metadata} from "next";
 import "./globals.css";
 import {Inter as FontSans} from "next/font/google"
 import {cn} from "@/lib/utils"
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import {CustomSessionProvider} from "@/components/ui/CustomSessionProvider";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -26,7 +29,10 @@ export default function RootLayout({
                 fontSans.variable
             )}
         >
-        {children}
+        <CustomSessionProvider>
+            {children}
+            <ToastContainer position={"bottom-right"} stacked theme={"dark"}/>
+        </CustomSessionProvider>
         </body>
         </html>
     );
