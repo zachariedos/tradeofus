@@ -17,9 +17,7 @@ async function main() {
     await prisma.classes.createMany({
         data: classList.map((c) => ({slug: c}))
     });
-
-
-    console.log("Database seeded successfully!");
+    console.log('Classes seeded');
 
     process.exit();
 };

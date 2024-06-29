@@ -41,9 +41,11 @@ export function SettingsDropDown(props: SettingsDropDownProps) {
                             <span>Personnages</span>
                         </Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
-                        <ArrowRightLeft className="mr-2 h-4 w-4"/>
-                        <span>Échanges</span>
+                    <DropdownMenuItem asChild>
+                        <Link href={"/exchanges"}>
+                            <ArrowRightLeft className="mr-2 h-4 w-4"/>
+                            <span>Échanges</span>
+                        </Link>
                     </DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator/>
