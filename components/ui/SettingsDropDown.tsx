@@ -3,11 +3,11 @@
 import {
     ArrowRightLeft,
     LogOut,
-    Settings,
+    Settings, Swords,
     User,
 } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
+import {Button} from "@/components/ui/button"
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import {Session} from "next-auth";
 import {signOut} from "next-auth/react";
+import Link from "next/link";
 
 type SettingsDropDownProps = {
     session: Session
@@ -32,24 +33,22 @@ export function SettingsDropDown(props: SettingsDropDownProps) {
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56">
                 <DropdownMenuLabel>Mon compte</DropdownMenuLabel>
-                <DropdownMenuSeparator />
+                <DropdownMenuSeparator/>
                 <DropdownMenuGroup>
-                    <DropdownMenuItem>
-                        <User className="mr-2 h-4 w-4" />
-                        <span>Profile</span>
+                    <DropdownMenuItem asChild>
+                        <Link href={"/characters"}>
+                            <Swords className="mr-2 h-4 w-4"/>
+                            <span>Personnages</span>
+                        </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem>
-                        <ArrowRightLeft className="mr-2 h-4 w-4" />
+                        <ArrowRightLeft className="mr-2 h-4 w-4"/>
                         <span>Échanges</span>
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
-                        <Settings className="mr-2 h-4 w-4" />
-                        <span>Paramètres</span>
-                    </DropdownMenuItem>
                 </DropdownMenuGroup>
-                <DropdownMenuSeparator />
+                <DropdownMenuSeparator/>
                 <DropdownMenuItem onClick={() => signOut({callbackUrl: "/api/auth/signin"})}>
-                    <LogOut className="mr-2 h-4 w-4" />
+                    <LogOut className="mr-2 h-4 w-4"/>
                     <span>Déconnexion</span>
                 </DropdownMenuItem>
             </DropdownMenuContent>

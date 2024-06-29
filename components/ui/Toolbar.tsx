@@ -9,7 +9,7 @@ export const Toolbar = () => {
     const router = useRouter();
     return (
         <div
-            className={"w-full fixed top-0 h-12 bg-black/30 backdrop-blur-sm inline-flex items-center justify-end px-2"}>
+            className={"w-full sticky z-50 top-0 h-12  backdrop-blur inline-flex items-center justify-end px-2 dark"}>
             {session.data?.user ?
                 <SettingsDropDown session={session.data}/>
                 :

@@ -16,7 +16,7 @@ export default function SignIn() {
     }, [searchParams])
 
     return (
-        <div className={"flex flex-col gap-2 items-center justify-center h-screen"}>
+        <div className={"flex flex-col gap-2 items-center justify-center flex-1"}>
             <div className="space-y-4">
                 <GoogleLoginButton/>
             </div>
