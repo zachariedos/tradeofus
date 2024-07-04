@@ -58,7 +58,7 @@ export const CharacterDisplay = (props: CharacterDisplayProps) => {
             alt={"pedestal"}
             width={250}
             height={250}
-            className={"absolute z-0 -bottom-7 grayscale opacity-50"}
+            className={"absolute z-0 -bottom-7 grayscale"}
         />
     </div>
 };

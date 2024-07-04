@@ -3,7 +3,7 @@
 import {
     ArrowRightLeft,
     LogOut,
-    Settings, Swords,
+    Settings, ShoppingCart, Swords,
     User,
 } from "lucide-react"
 
@@ -42,9 +42,9 @@ export function SettingsDropDown(props: SettingsDropDownProps) {
                         </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                        <Link href={"/exchanges"}>
-                            <ArrowRightLeft className="mr-2 h-4 w-4"/>
-                            <span>Échanges</span>
+                        <Link href={"/offers"}>
+                            <ShoppingCart  className="mr-2 h-4 w-4"/>
+                            <span>Vos offres</span>
                         </Link>
                     </DropdownMenuItem>
                 </DropdownMenuGroup>

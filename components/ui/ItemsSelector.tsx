@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import {Check, ChevronsUpDown, Loader, LoaderCircle, PackageOpen} from "lucide-react"
+import {Check, ChevronsUpDown, LoaderCircle, PackageOpen} from "lucide-react"
 import {cn} from "@/lib/utils"
 import {Button} from "@/components/ui/button"
 import {useDebounce} from "@uidotdev/usehooks"
@@ -22,18 +22,18 @@ import {useEffect, useState} from "react"
 import Image from "next/image";
 
 const searchItemsPage = async (searchTerm) => {
-    console.log(`Searching for term: ${searchTerm}`) // Debug log
     const request = await fetch(`https://api.dofusdb.fr/items?slug.fr[$search]=${searchTerm}`, {
         headers: {
             "Content-Type": "application/json",
         }
     })
     const response = await request.json()
-    console.log(`Response data:`, response?.data) // Debug log
     return response?.data || []
 }
 
-export const ItemsSelector = () => {
+export const ItemsSelector =(props:{
+    onSelect: (item: any) => void;
+}) => {
     const [open, setOpen] = useState(false)
     const [searchTerm, setSearchTerm] = useState("")
     const [results, setResults] = useState([])
@@ -62,7 +62,7 @@ export const ItemsSelector = () => {
                     variant="outline"
                     role="combobox"
                     aria-expanded={open}
-                    className="justify-between"
+                    className="justify-between bg-background relative z-50 backdrop-blur"
                 >
                     {value
                         ?
@@ -100,6 +100,7 @@ export const ItemsSelector = () => {
                                         key={item.id}
                                         value={item}
                                         onSelect={() => {
+                                            props.onSelect(item)
                                             setValue(item)
                                             setOpen(false)
                                         }}
@@ -128,4 +129,4 @@ export const ItemsSelector = () => {
             </PopoverContent>
         </Popover>
     )
-}
+};

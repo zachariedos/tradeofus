@@ -3,6 +3,7 @@
 import {CharacterEditor} from "@/components/ui/CharacterEditor";
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
+import {ChevronLeft} from "lucide-react";
 
 interface Props {
     params: { character_id: string },
@@ -14,6 +15,7 @@ export default function EditorCharacterPage(props: Props) {
             <div className={"self-start justify-self-start m-2"}>`
                 <Button variant="outline" asChild>
                     <Link href={"/characters"}>
+                        <ChevronLeft />
                         Retour
                     </Link>
                 </Button>

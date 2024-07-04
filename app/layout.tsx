@@ -6,6 +6,8 @@ import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import {CustomSessionProvider} from "@/components/ui/CustomSessionProvider";
 import {Toolbar} from "@/components/ui/Toolbar";
+import Particles from "@/components/background/particles";
+import AnimatedGridPattern from "@/components/background/animated-grid-pattern";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -31,9 +33,12 @@ export default function RootLayout({
                     fontSans.variable
                 )}
             >
-            <Toolbar/>
-            {children}
-            <ToastContainer position={"bottom-right"} stacked theme={"dark"}/>
+            <Particles className={"absolute h-screen w-screen z-0"} quantity={200} />
+            <div className={"relative z-10 flex flex-col h-full min-h-screen"}>
+                <Toolbar/>
+                {children}
+                <ToastContainer position={"bottom-right"} stacked theme={"dark"}/>
+            </div>
             </body>
             </html>
         </CustomSessionProvider>
